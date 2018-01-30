@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Life</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Точек в шир:</th>
+                <th> <input id="canvas_x" type="text" size="5" value="40" /> </th>
+                <th>Точек в выс:</th>
+                <th> <input id="canvas_y" type="text" size="5" value="60" /> </th>
+            </tr>
+            <tr>
+                <th>Размер точки:</th>
+                <th><input id="canvas_dot" type="text" size="5" value="10" /></th>
+                <th>Замкнутая:</th>
+                <th> <input id="canvas_elapsed" type="checkbox" checked /> </th>
+            </tr>
+        </table>
+        <input id="submit" type="button" size="5" value="submit" />
+        <input id="random" type="button" size="5" value="random" /><br />
+    </div>
+
+    <input id="pause" type="button" size="5" value="pause" />
+    <input id="start" type="button" size="5" value="start" />
+    <input id="time_cycle" type="text" size="5" value="100" /> ms.
+    <input id="step" type="button" size="5" value="step">
+    <input id="jump" type="button" size="5" value="jump" />
+    <input id="count_step" type="text" size="5" value="100" /> step.<br />
+
+    <table>
+        <tr>
+            <th>Цикл жизни:</th>
+            <th id="count_life">0</th>
+        </tr>
+    </table>
+    <br />
+    <canvas id="canvas"></canvas>
+    <br />
+    
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Life.js"></script>
+</body>
+</html>
