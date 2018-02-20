@@ -3,6 +3,7 @@ var canvas_x = parseInt(document.getElementById('canvas_x').value, 10);     //Ш
 var canvas_y = parseInt(document.getElementById('canvas_y').value, 10);     //Высота
 var canvas_dot = parseInt(document.getElementById('canvas_dot').value, 10); //Размер точки
 var canvas_elapsed = document.getElementById('canvas_elapsed').checked;     //Флаг замыкания поля
+var canvas_colored = document.getElementById('canvas_colored').checked;
 var time_cycle = parseInt(document.getElementById('time_cycle').value, 10); //Время цикла
 var count_step = parseInt(document.getElementById('count_step').value, 10); //Кол-во прыжков
 var flag_cycle;                     //Параметр для SetInterval
@@ -17,6 +18,7 @@ function change_param() {
     canvas_y = parseInt(document.getElementById('canvas_y').value, 10);
     canvas_dot = parseInt(document.getElementById('canvas_dot').value, 10);
     canvas_elapsed = document.getElementById('canvas_elapsed').checked;
+    canvas_colored = document.getElementById('canvas_colored').checked;
 }
 
 //Создание поля Canvas
@@ -71,13 +73,22 @@ function draw() {
     ctx = canvas.getContext('2d');
     for (var i = 0; i < canvas_x; i++) {
         for (var j = 0; j < canvas_y; j++) {
-            ctx.fillStyle = (mass[i][j]) ? "green" : "white";
+            ctx.fillStyle = (mass[i][j]) ? canvas_colored ? getRColor() : "green" : "white";
 
             ctx.fillRect(i * canvas_dot, j * canvas_dot, canvas_dot, canvas_dot);
             if (canvas_dot >=10)
                 ctx.strokeRect(i * canvas_dot, j * canvas_dot, canvas_dot, canvas_dot);
         }
     }
+}
+
+function getRColor() {
+    var letters = '23456789ABC';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 11)];
+    }
+    return color;
 }
 
 
